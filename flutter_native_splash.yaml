@@ -1,0 +1,9 @@
+flutter_native_splash:
+  color: "#ffffff"
+  #background_image: "assets/background.png"
+  image: assets/images/logo/islami_logo.png
+
+
+  android_12:
+   image: assets/images/logo/android12splash.png
+   color: "#ffffff"
