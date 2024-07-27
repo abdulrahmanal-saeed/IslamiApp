@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:islami_app/app_theme.dart';
 import 'package:islami_app/tabs/Radio/Radio_tab.dart';
 import 'package:islami_app/tabs/hadeth/hadeth_tab.dart';
 import 'package:islami_app/tabs/quran/quran_tab.dart';
