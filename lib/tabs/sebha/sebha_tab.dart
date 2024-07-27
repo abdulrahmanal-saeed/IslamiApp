@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:islami_app/app_theme.dart';
 
 class SebhaTab extends StatefulWidget {
 
@@ -56,6 +57,7 @@ class _SebhaTabState extends State<SebhaTab> with SingleTickerProviderStateMixin
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            Image.asset('assets/images/head_sebha_logo.png',height: MediaQuery.of(context).size.height * 0.15,),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -71,14 +73,23 @@ class _SebhaTabState extends State<SebhaTab> with SingleTickerProviderStateMixin
             Text(
               'عدد التسبيحات',
             ),
-            Text(
-              '$counter',
-              style: Theme.of(context).textTheme.titleLarge,
+            Container(
+              margin: EdgeInsets.only(top: 10),
+              padding: EdgeInsets.all(10),
+              decoration: BoxDecoration(
+                color: AppTheme.lightPrimary, // لون الخلفية
+                borderRadius: BorderRadius.circular(10), // تدوير الحواف
+              ),
+              child: Text(
+                '$counter',
+                style: TextStyle(fontSize: 25, color: Colors.white), // نص الرقم
+              ),
             ),
             SizedBox(height: 20),
             ElevatedButton(
+              style: ElevatedButton.styleFrom(backgroundColor:AppTheme.lightPrimary, padding: EdgeInsets.all(15) ),
               onPressed: incrementCounter,
-              child: Text(tasbeeh, style: TextStyle(fontSize: 20)),
+              child: Text(tasbeeh, style: Theme.of(context).textTheme.headlineSmall,),
             ),
           ],
         ),
