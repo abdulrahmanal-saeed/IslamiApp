@@ -1,16 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:islami_app/tabs/hadeth/hadeth.dart';
 import '../../app_theme.dart';
-import 'hadeth_tab.dart';
 
 class HadethDetailsScreen extends StatelessWidget {
   static const String routeName = "/HadethDetailsScreen";
-
-  List<String> ayat = [];
-
   @override
   Widget build(BuildContext context) {
-    HadethDetailsArgs args = ModalRoute.of(context)!.settings.arguments as HadethDetailsArgs;
-
+    Hadeth hadeth = ModalRoute.of(context)!.settings.arguments as Hadeth;
     return  Container(
       decoration: BoxDecoration(
         image: DecorationImage(
@@ -19,7 +15,7 @@ class HadethDetailsScreen extends StatelessWidget {
         ),
       ),
       child: Scaffold(
-        appBar: AppBar(title: Text(args.hadith,)
+        appBar: AppBar(title: Text(hadeth.title)
         ),
         body:
           Container(
@@ -30,11 +26,17 @@ class HadethDetailsScreen extends StatelessWidget {
           color: AppTheme.white,
           borderRadius: BorderRadius.circular(25)
       ),
-      child: ListView.builder(itemBuilder: (_, index) => Text(
-        ayat[index],
+      child: hadeth.content.isEmpty
+          ? Center(
+        child: CircularProgressIndicator(
+          color: Theme.of(context).primaryColor,
+        ),
+      )
+      : ListView.builder(itemBuilder: (_, index) => Text(
+        hadeth.content[index],
         style: Theme.of(context).textTheme.titleLarge,
         textAlign: TextAlign.center,),
-        itemCount: ayat.length,
+        itemCount: hadeth.content.length,
       ),
     ),
       ),
