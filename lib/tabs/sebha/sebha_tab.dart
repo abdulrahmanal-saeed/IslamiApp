@@ -10,24 +10,11 @@ class SebhaTab extends StatefulWidget {
 class _SebhaTabState extends State<SebhaTab> with SingleTickerProviderStateMixin  {
   int counter = 0;
   String tasbeeh = "سبحان الله";
-  late AnimationController _controller;
-  late Animation<double> _animation;
-
-  @override
-  void initState() {
-    super.initState();
-    _controller = AnimationController(
-      duration: const Duration(milliseconds: 200),
-      vsync: this,
-    )
-      ..addListener(() {
-        setState(() {});
-      });
-    _animation = Tween(begin: 0.0, end: 0.1).animate(_controller);
-  }
+   double angle = 0;
 
   void incrementCounter() {
     setState(() {
+      angle +=10;
       counter++;
       if (counter > 33) {
         counter = 1;
@@ -39,15 +26,9 @@ class _SebhaTabState extends State<SebhaTab> with SingleTickerProviderStateMixin
           tasbeeh = "سبحان الله";
         }
       }
-      _controller.forward(from: 0.0);
     });
   }
 
-  @override
-  void dispose() {
-    _controller.dispose();
-    super.dispose();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -55,19 +36,23 @@ class _SebhaTabState extends State<SebhaTab> with SingleTickerProviderStateMixin
       onTap: incrementCounter,
       child: Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Stack(
-              alignment: Alignment.center,
               children: [
                 Padding(
-                  padding: EdgeInsets.only(bottom: 60),
-                  child: Image.asset('assets/images/head_sebha_logo.png',),
+                  padding: const EdgeInsetsDirectional.only(start: 50),
+                  child: Align(alignment: Alignment.center,
+                      child: Image.asset('assets/images/head_sebha_logo.png',
+                      height: 101,)),
                 ),
-                Transform.rotate(
-                  angle: _animation.value,
-                  child: Image.asset('assets/images/body_sebha_logo.png',
-                    height: MediaQuery.of(context).size.height * 0.25,
+                Padding(
+                  padding: const EdgeInsets.only(top: 75),
+                  child: Align(alignment: Alignment.center,
+                    child: Transform.rotate(
+                      angle: angle,
+                      child: Image.asset('assets/images/body_sebha_logo.png',
+                      ),
+                    ),
                   ),
                 ),
               ],
