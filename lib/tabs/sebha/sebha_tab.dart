@@ -57,10 +57,13 @@ class _SebhaTabState extends State<SebhaTab> with SingleTickerProviderStateMixin
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Image.asset('assets/images/head_sebha_logo.png',height: MediaQuery.of(context).size.height * 0.15,),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
+            Stack(
+              alignment: Alignment.center,
               children: [
+                Padding(
+                  padding: EdgeInsets.only(bottom: 60),
+                  child: Image.asset('assets/images/head_sebha_logo.png',),
+                ),
                 Transform.rotate(
                   angle: _animation.value,
                   child: Image.asset('assets/images/body_sebha_logo.png',
