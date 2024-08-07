@@ -10,14 +10,14 @@ class AppTheme{
   static ThemeData lightTheme = ThemeData(
     primaryColor: lightPrimary,
       scaffoldBackgroundColor: Colors.transparent,
-      appBarTheme: AppBarTheme(
+      appBarTheme: const AppBarTheme(
         iconTheme: IconThemeData(color: Colors.black),
         backgroundColor: Colors.transparent,
         elevation: 0,
         centerTitle: true,
         titleTextStyle: TextStyle(
             fontWeight: FontWeight.bold,
-            fontSize: 30,
+            fontSize: 25,
             color: black
         ),
       ),
@@ -40,8 +40,23 @@ class AppTheme{
           fontWeight: FontWeight.w400,
           color: black
       ),
+        labelMedium: //Doaa Sebha
+        TextStyle(
+
+            fontSize: 25,
+            fontWeight: FontWeight.w400,
+            color: white
+        ),
+        labelSmall: //language // Setting
+        TextStyle(
+            fontSize: 20,
+            fontWeight: FontWeight.w400,
+            color: black
+        )
 
     ),
+    switchTheme: SwitchThemeData(thumbColor: WidgetStatePropertyAll(white)),
+
 
   );
 
@@ -51,14 +66,47 @@ class AppTheme{
   static ThemeData darkTheme = ThemeData(
       scaffoldBackgroundColor: Colors.transparent,
       appBarTheme: AppBarTheme(
+        foregroundColor: white,
         backgroundColor: Colors.transparent,
         centerTitle: true,
+        titleTextStyle: TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: 25,
+            color: white
+  ),
       ),
       bottomNavigationBarTheme: BottomNavigationBarThemeData(
         type: BottomNavigationBarType.fixed,
         selectedItemColor: gold,
         unselectedItemColor: white,
         backgroundColor: darkPrimary,
-      )
+      ),
+      textTheme: TextTheme(
+          headlineSmall:
+          TextStyle(
+              fontSize: 25,
+              fontWeight: FontWeight.w400,
+              color: white
+          ),
+          titleLarge:
+          TextStyle(
+              fontSize: 20,
+              fontWeight: FontWeight.w400,
+              color: gold
+              ),
+          labelMedium: //Doaa Sebha
+          TextStyle(
+              fontSize: 25,
+              fontWeight: FontWeight.w400,
+              color: black
+          ),
+          labelSmall: //language // Setting
+          TextStyle(
+              fontSize: 20,
+              fontWeight: FontWeight.w400,
+              color: white
+          )
+      ),
+      switchTheme: SwitchThemeData(thumbColor: WidgetStatePropertyAll(white)),
   );
 }

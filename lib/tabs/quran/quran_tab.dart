@@ -349,19 +349,12 @@ class _QuranTabState extends State<QuranTab> {
                   separatorBuilder: (_,__) => SizedBox(height: 12),
                 ),
               ),
-
-
-
-
-
             ],
           ),
         ),
       ],
     );
   }
-
-
 }
 
 class SuraDetailsArgs{

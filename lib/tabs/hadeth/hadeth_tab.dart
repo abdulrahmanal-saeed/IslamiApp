@@ -34,11 +34,8 @@ class _HadethTabState extends State<HadethTab> {
                 ),
                 Text(
                   'الأحاديث',
-                  style: TextStyle(
-                    fontSize: 24,
-                    fontWeight: FontWeight.bold,
+                  style: Theme.of(context).textTheme.headlineSmall,
                   ),
-                ),
                 Divider(
                   color: AppTheme.lightPrimary,
                   thickness: 3,
