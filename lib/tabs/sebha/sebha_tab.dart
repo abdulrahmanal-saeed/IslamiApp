@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:islami_app/app_theme.dart';
 import 'package:provider/provider.dart';
-
 import '../settings/settings_provider.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class SebhaTab extends StatefulWidget {
 
@@ -44,12 +44,9 @@ class _SebhaTabState extends State<SebhaTab> with SingleTickerProviderStateMixin
           children: <Widget>[
             Stack(
               children: [
-                Padding(
-                  padding: const EdgeInsetsDirectional.only(start: 50),
-                  child: Align(alignment: Alignment.center,
-                      child: Image.asset(_settingsProvider.isDark ? 'assets/images/head_sebha_dark.png' : 'assets/images/head_sebha_logo.png',
-                      height: 101,)),
-                ),
+                Align(alignment: Alignment.center,
+                    child: Image.asset(_settingsProvider.isDark ? 'assets/images/head_sebha_dark.png' : 'assets/images/head_sebha_logo.png',
+                    height: 101,)),
                 Padding(
                   padding: const EdgeInsets.only(top: 75),
                   child: Align(alignment: Alignment.center,
@@ -64,7 +61,7 @@ class _SebhaTabState extends State<SebhaTab> with SingleTickerProviderStateMixin
             ),
             SizedBox(height: 20),
             Text(
-              'عدد التسبيحات',
+              AppLocalizations.of(context)!.tasbeeh,
               style: Theme.of(context).textTheme.headlineSmall,
             ),
             Container(

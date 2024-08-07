@@ -8,7 +8,7 @@ class SettingsProvider extends ChangeNotifier {
 
   String get backgroundImagePath => isDark ?'assets/images/dark_bg.png'  : 'assets/images/default_bg.png';
 
-  String language = 'en';
+  String language = 'ar';
 
   void ChangeThemeMode(ThemeMode selectedThemeMode){
     themeMode = selectedThemeMode;
