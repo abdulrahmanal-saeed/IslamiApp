@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import '../../app_theme.dart';
+import '../settings/settings_provider.dart';
 
 class RadioTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SettingsProvider _settingsProvider = Provider.of<SettingsProvider>(context);
     return  Container(
-      decoration: BoxDecoration(
-        image: DecorationImage(
-          image: AssetImage('assets/images/default_bg.png'),
-          fit: BoxFit.fill,
-        ),
-      ),
       child: Scaffold(
         body: Column(
           children: [
@@ -29,19 +28,18 @@ class RadioTab extends StatelessWidget {
             SizedBox(height: 16),
             Text(
               'إذاعة القرآن الكريم',
-              style: TextStyle(
-                fontSize: 20,
-              ),
+              style: Theme.of(context).textTheme.headlineSmall,
+
             ),
-            SizedBox(height: 16),
+            SizedBox(height: 25),
             Padding(
               padding: const EdgeInsets.all(16.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  Icon(Icons.skip_previous, size: 32),
-                  Icon(Icons.play_arrow, size: 32),
-                  Icon(Icons.skip_next, size: 32),
+                  Icon(Icons.skip_previous, size: 32, color:_settingsProvider.isDark ? AppTheme.gold : AppTheme.lightPrimary,),
+                  Icon(Icons.play_arrow, size: 32, color:_settingsProvider.isDark ? AppTheme.gold : AppTheme.lightPrimary,),
+                  Icon(Icons.skip_next, size: 32, color:_settingsProvider.isDark ? AppTheme.gold : AppTheme.lightPrimary,),
             ],
           ),
         ),

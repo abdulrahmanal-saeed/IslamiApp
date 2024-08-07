@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:islami_app/app_theme.dart';
 import 'package:islami_app/tabs/quran/quran_tab.dart';
+import 'package:provider/provider.dart';
+import '../settings/settings_provider.dart';
 
 class SuraDetailsScreen extends StatefulWidget {
   static const String routeName = "/SuraDetailsScreen";
@@ -16,12 +18,13 @@ class _SuraDetailsScreenState extends State<SuraDetailsScreen> {
 
   @override
   Widget build(BuildContext context) {
+    SettingsProvider _settingsProvider = Provider.of<SettingsProvider>(context);
     loadSuraFiles();
     args = ModalRoute.of(context)!.settings.arguments as SuraDetailsArgs;
     return  Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('assets/images/default_bg.png'),
+            image: AssetImage(_settingsProvider.backgroundImagePath),
             fit: BoxFit.fill,
           ),
         ),
@@ -34,7 +37,7 @@ class _SuraDetailsScreenState extends State<SuraDetailsScreen> {
           margin: EdgeInsets.symmetric(vertical: MediaQuery.of(context).size.height * 0.06 ,
               horizontal: MediaQuery.of(context).size.width * 0.07),
           decoration: BoxDecoration(
-            color: AppTheme.white,
+            color: _settingsProvider.isDark ? AppTheme.darkPrimary : AppTheme.white,
             borderRadius: BorderRadius.circular(25)
           ),
           child: ayat.isEmpty ?
